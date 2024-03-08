@@ -1,10 +1,11 @@
-import { Popover } from "@headlessui/react";
-import { useTheme } from "next-themes";
-import { useRouter } from "next/router";
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
+
 import Button from "../Button";
-// Local Data
+import { Popover } from "@headlessui/react";
 import data from "../../data/portfolio.json";
+import { useRouter } from "next/router";
+import { useTheme } from "next-themes";
 
 const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
   const router = useRouter();
@@ -39,6 +40,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                   >
                     <img
                       className="h-6"
+                      alt="headerImage1"
                       src={`/images/${
                         theme === "dark" ? "moon.svg" : "sun.svg"
                       }`}
@@ -49,6 +51,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                 <Popover.Button>
                   <img
                     className="h-5"
+                    alt="headerImage2"
                     src={`/images/${
                       !open
                         ? theme === "dark"
@@ -69,8 +72,8 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
             >
               {!isBlog ? (
                 <div className="grid grid-cols-1">
-                  <Button onClick={handleWorkScroll}>Work</Button>
-                  <Button onClick={handleAboutScroll}>About</Button>
+                  <Button onClick={handleWorkScroll}>Experience professionnelle</Button>
+                  <Button onClick={handleAboutScroll}>A propos</Button>
                   {showBlog && (
                     <Button onClick={() => router.push("/blog")}>Blog</Button>
                   )}
@@ -80,7 +83,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                         window.open("mailto:hello@chetanverma.com")
                       }
                     >
-                      Resume
+                      CV
                     </Button>
                   )}
 
@@ -103,7 +106,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                       onClick={() => router.push("/resume")}
                       classes="first:ml-1"
                     >
-                      Resume
+                      CV
                     </Button>
                   )}
 
@@ -125,14 +128,14 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
       >
         <h1
           onClick={() => router.push("/")}
-          className="font-medium cursor-pointer mob:p-2 laptop:p-0"
+          className="font-medium cursor-pointer mob:p-2 laptop:p-0 ml-10"
         >
-          {name}.
+          {name}
         </h1>
         {!isBlog ? (
           <div className="flex">
-            <Button onClick={handleWorkScroll}>Work</Button>
-            <Button onClick={handleAboutScroll}>About</Button>
+            <Button onClick={handleWorkScroll}>Experience professionnelle</Button>
+            <Button onClick={handleAboutScroll}>A propos</Button>
             {showBlog && (
               <Button onClick={() => router.push("/blog")}>Blog</Button>
             )}
@@ -141,7 +144,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                 onClick={() => router.push("/resume")}
                 classes="first:ml-1"
               >
-                Resume
+                CV
               </Button>
             )}
 
@@ -153,6 +156,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               >
                 <img
+                  alt="headerImage3"
                   className="h-6"
                   src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
                 ></img>
@@ -161,7 +165,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
           </div>
         ) : (
           <div className="flex">
-            <Button onClick={() => router.push("/")}>Home</Button>
+            <Button onClick={() => router.push("/")}>Accueil</Button>
             {showBlog && (
               <Button onClick={() => router.push("/blog")}>Blog</Button>
             )}
@@ -170,7 +174,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                 onClick={() => router.push("/resume")}
                 classes="first:ml-1"
               >
-                Resume
+                CV
               </Button>
             )}
 
@@ -184,6 +188,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
               >
                 <img
                   className="h-6"
+                  alt="headerImage3"
                   src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
                 ></img>
               </Button>
