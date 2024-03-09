@@ -8,12 +8,12 @@ import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
 
 type Props = {
-  handleWorkScroll: () => void
-  handleAboutScroll: () => void
+  handleWorkScroll?: () => void
+  handleAboutScroll?: () => void
   isBlog?: boolean
 }
 
-const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
+const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }: Props) => {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
