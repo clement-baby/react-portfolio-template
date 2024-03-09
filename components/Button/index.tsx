@@ -1,8 +1,15 @@
 import React from "react";
-import { useTheme } from "next-themes";
 import data from "../../data/portfolio.json";
+import { useTheme } from "next-themes";
 
-const Button = ({ children, type, onClick, classes }) => {
+type Props = {
+  children: any
+  onClick?: () => any
+  type?: string
+  classes?: any
+}
+
+const Button = ({ children, type, onClick, classes }: Props) => {
   const { theme } = useTheme();
   if (type === "primary") {
     return (

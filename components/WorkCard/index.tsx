@@ -1,6 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 
+type Props = {
+  img: string
+  name: string
+  description: string
+  onClick: () => any
+}
+
 const WorkCard = ({ img, name, description, onClick }) => {
   return (
     <div

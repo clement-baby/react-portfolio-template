@@ -7,6 +7,12 @@ import data from "../../data/portfolio.json";
 import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
 
+type Props = {
+  handleWorkScroll: () => void
+  handleAboutScroll: () => void
+  isBlog?: boolean
+}
+
 const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
